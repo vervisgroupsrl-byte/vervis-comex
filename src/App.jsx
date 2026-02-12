@@ -1192,5 +1192,6 @@ Formato de respuesta: {"category":"<una de las categorías>","summary":"<resumen
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={()=>setToast(null)} />}
     </>)}
+    </>
   );
 }

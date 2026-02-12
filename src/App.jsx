@@ -133,8 +133,146 @@ function Modal({ onClose, title, icon, children }) {
   );
 }
 
+// ─── AUTH ─────────────────────────────────────────────────────────────────────
+const AUTH_USER = "vervis";
+const AUTH_PASS = "Vervis@srl1";
+const LS_KEY_AUTH = "vervis_auth";
+
+function LoginScreen({ onLogin }) {
+  const [user,    setUser]    = useState("");
+  const [pass,    setPass]    = useState("");
+  const [showP,   setShowP]   = useState(false);
+  const [error,   setError]   = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = () => {
+    if (!user.trim() || !pass.trim()) { setError("Completá usuario y contraseña"); return; }
+    setLoading(true);
+    setError("");
+    setTimeout(() => {
+      if (user === AUTH_USER && pass === AUTH_PASS) {
+        try { localStorage.setItem(LS_KEY_AUTH, "true"); } catch {}
+        onLogin();
+      } else {
+        setError("Usuario o contraseña incorrectos");
+        setLoading(false);
+      }
+    }, 600);
+  };
+
+  const handleKey = e => { if (e.key === "Enter") handleLogin(); };
+
+  return (
+    <div style={{
+      minHeight:"100vh", background:"#0b0b18",
+      display:"flex", alignItems:"center", justifyContent:"center",
+      fontFamily:"'DM Sans',sans-serif", padding:20
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0;}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        .login-input{background:#0e0e1c;border:1px solid #252545;border-radius:10px;color:#e2e8f0;font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px;outline:none;width:100%;transition:border-color .2s;}
+        .login-input:focus{border-color:#94a3b8!important;box-shadow:0 0 0 3px rgba(148,163,184,.08)!important;}
+        .login-btn{cursor:pointer;border:none;outline:none;font-family:'DM Sans',sans-serif;transition:all .18s ease;}
+        .login-btn:hover{opacity:.87;transform:translateY(-1px);}
+        .login-btn:active{transform:translateY(0);}
+      `}</style>
+
+      <div style={{
+        width:"100%", maxWidth:400,
+        animation:"fadeUp .4s ease"
+      }}>
+        {/* Logo */}
+        <div style={{ textAlign:"center", marginBottom:36 }}>
+          <div style={{
+            width:64, height:64, borderRadius:18,
+            background:"linear-gradient(135deg,#334155,#475569)",
+            display:"inline-flex", alignItems:"center", justifyContent:"center",
+            fontSize:30, boxShadow:"0 8px 32px rgba(0,0,0,.5)",
+            marginBottom:16
+          }}>🚢</div>
+          <div style={{ fontFamily:"'Syne',sans-serif", fontSize:22, fontWeight:800, color:"#f8fafc", letterSpacing:".5px" }}>
+            VERVIS COMEX
+          </div>
+          <div style={{ fontSize:12, color:"#334155", letterSpacing:"2px", textTransform:"uppercase", marginTop:4 }}>
+            Centro de Gestión
+          </div>
+        </div>
+
+        {/* Card */}
+        <div style={{
+          background:"#111128", border:"1px solid #1a1a38",
+          borderRadius:18, padding:32
+        }}>
+          <div style={{ fontSize:16, fontWeight:600, color:"#e2e8f0", marginBottom:24, textAlign:"center" }}>
+            Iniciá sesión para continuar
+          </div>
+
+          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+            <div>
+              <label style={{ fontSize:11, color:"#475569", textTransform:"uppercase", letterSpacing:"1.2px", display:"block", marginBottom:6 }}>Usuario</label>
+              <input className="login-input" value={user}
+                onChange={e=>{ setUser(e.target.value); setError(""); }}
+                onKeyDown={handleKey}
+                placeholder="Ingresá tu usuario"
+                autoComplete="username" />
+            </div>
+            <div>
+              <label style={{ fontSize:11, color:"#475569", textTransform:"uppercase", letterSpacing:"1.2px", display:"block", marginBottom:6 }}>Contraseña</label>
+              <div style={{ position:"relative" }}>
+                <input className="login-input" type={showP ? "text" : "password"}
+                  value={pass}
+                  onChange={e=>{ setPass(e.target.value); setError(""); }}
+                  onKeyDown={handleKey}
+                  placeholder="Ingresá tu contraseña"
+                  autoComplete="current-password"
+                  style={{ paddingRight:44 }} />
+                <button className="login-btn" onClick={()=>setShowP(p=>!p)} style={{
+                  position:"absolute", right:12, top:"50%", transform:"translateY(-50%)",
+                  background:"none", color:"#475569", fontSize:16, padding:"4px"
+                }}>{showP ? "🙈" : "👁"}</button>
+              </div>
+            </div>
+
+            {error && (
+              <div style={{
+                background:"rgba(148,163,184,.08)", border:"1px solid rgba(148,163,184,.2)",
+                borderRadius:8, padding:"10px 14px",
+                fontSize:13, color:"#94a3b8", textAlign:"center"
+              }}>⚠️ {error}</div>
+            )}
+
+            <button className="login-btn" onClick={handleLogin} style={{
+              width:"100%", padding:"13px",
+              background:"linear-gradient(135deg,#334155,#475569)",
+              color:"#f1f5f9", borderRadius:10,
+              fontWeight:700, fontSize:15, marginTop:6,
+              boxShadow:"0 4px 20px rgba(0,0,0,.4)",
+              display:"flex", alignItems:"center", justifyContent:"center", gap:8
+            }}>
+              {loading
+                ? <span style={{ display:"inline-block", animation:"pulse 1s infinite" }}>Verificando...</span>
+                : "Ingresar →"
+              }
+            </button>
+          </div>
+        </div>
+
+        <div style={{ textAlign:"center", marginTop:20, fontSize:12, color:"#1e293b" }}>
+          Vervis Comex · Acceso restringido
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── MAIN APP ─────────────────────────────────────────────────────────────────
 export default function VervisComex() {
+  const [isAuth, setIsAuth] = useState(() => {
+    try { return localStorage.getItem(LS_KEY_AUTH) === "true"; } catch { return false; }
+  });
   const [tab,          setTab]          = useState("resources");
   const [resources,    setResources]    = useState(() => loadLS(LS_KEY_RES, SEED_RESOURCES));
   const [credentials,  setCredentials]  = useState(() => loadLS(LS_KEY_CRED, SEED_CREDS));
@@ -418,6 +556,8 @@ Formato de respuesta: {"category":"<una de las categorías>","summary":"<resumen
 
   return (
     <>
+      {!isAuth && <LoginScreen onLogin={()=>setIsAuth(true)} />}
+      {isAuth && (<>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
@@ -471,6 +611,11 @@ Formato de respuesta: {"category":"<una de las categorías>","summary":"<resumen
                 <div style={{ background:"#1a1a38", border:"1px solid #252545", borderRadius:8, padding:"5px 12px", fontSize:12, color:"#64748b" }}>
                   {new Date().toLocaleDateString("es-AR",{day:"2-digit",month:"short",year:"numeric"})}
                 </div>
+                <button className="btn" onClick={()=>{ try { localStorage.removeItem(LS_KEY_AUTH); } catch {} setIsAuth(false); }} style={{
+                  background:"rgba(148,163,184,.08)", border:"1px solid #252545",
+                  color:"#475569", padding:"5px 12px", borderRadius:8, fontSize:12,
+                  display:"flex", alignItems:"center", gap:5
+                }}>🚪 Salir</button>
               </div>
             </div>
 
@@ -1045,6 +1190,6 @@ Formato de respuesta: {"category":"<una de las categorías>","summary":"<resumen
       )}
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={()=>setToast(null)} />}
-    </>
+    </>)}
   );
 }

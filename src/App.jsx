@@ -1,3 +1,4 @@
+// VERVIS COMEX — v2.0 — login habilitado
 import { useState, useEffect, useCallback } from "react";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────

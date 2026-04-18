@@ -766,11 +766,6 @@
       border-bottom: 1px solid rgba(47, 74, 47, 0.12);
     }
     .hero-stats .hs:nth-last-child(-n+2) { border-bottom: none; }
-    @media (max-width: 520px) {
-      .hero-stats { grid-template-columns: 1fr; }
-      .hero-stats .hs { border-bottom: 1px solid rgba(47, 74, 47, 0.12); }
-      .hero-stats .hs:last-child { border-bottom: none; }
-    }
     .hero-stats .hs-k {
       font-family: var(--sans);
       font-weight: 500;
@@ -982,6 +977,48 @@
     }
     .cert-seal--light {
       filter: brightness(1.05);
+    }
+
+    /* =====================================================
+       MOBILE POLISH (≤ 600px)
+       ===================================================== */
+    @media (max-width: 600px) {
+      :root { --section-y: clamp(3rem, 8vw, 4.5rem); }
+
+      .hero {
+        min-height: auto;
+        padding-top: 5rem;
+        padding-bottom: 2.5rem;
+      }
+      .hero-grid { gap: 1.8rem; }
+      .hero-img-wrap { order: -1; }
+      .hero-seal {
+        width: 64px; height: 64px;
+        top: 0.8rem; right: 0.8rem;
+      }
+      .hero-text h1 { margin-bottom: 1.2rem; }
+      .hero-subtitle { margin-bottom: 1.4rem; font-size: 1.1rem; }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        max-width: none;
+        margin: 1.3rem 0 1.8rem;
+      }
+      .hero-stats .hs { padding: 0.75rem 0.5rem 0.75rem 0; }
+      .hero-stats .hs-k { font-size: 0.58rem; letter-spacing: 0.26em; }
+      .hero-stats .hs-v { font-size: 0.92rem; }
+
+      .hero-ctas .btn {
+        width: 100%;
+        text-align: center;
+        padding: 1.1rem 1rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.26em;
+      }
+
+      nav.topnav { padding: 0 1.25rem; height: 56px; }
+      nav.topnav .brand { letter-spacing: 0.22em; font-size: 0.9rem; }
+      nav.topnav .nav-link { letter-spacing: 0.22em; font-size: 0.66rem; }
     }
 
     ::selection { background: var(--copper); color: var(--cream); }

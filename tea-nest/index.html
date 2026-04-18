@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tea Nest — Hand-pressed designer tea from Argentina</title>
+  <meta name="description" content="Hand-pressed Dragon Ball and Tuocha black tea from Misiones, Argentina. Whole-leaf G.F.O.P., 80-year plantations. For importers, specialty retailers and HORECA." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tea Nest — Hand-pressed designer tea from Argentina" />
+  <meta property="og:description" content="Hand-pressed Dragon Ball and Tuocha black tea from Misiones, Argentina. Whole-leaf G.F.O.P., 80-year plantations. For importers, specialty retailers and HORECA." />
+  <meta property="og:image" content="img/hero-teapot-flowers.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tea Nest — Hand-pressed designer tea from Argentina" />
+  <meta name="twitter:description" content="Hand-pressed Dragon Ball and Tuocha black tea from Misiones, Argentina." />
+  <meta name="twitter:image" content="img/hero-teapot-flowers.jpg" />
+
+  <!-- Favicon — real Tea Nest mark (dark green circle, cream N, sprout) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%232F4A2F"/><text x="48%" y="56%" text-anchor="middle" dominant-baseline="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="500" font-size="40" fill="%23FAF4D8">N</text><path d="M42 22 q3 -4 6 -2 q-1 3 -6 2 z" fill="%23FAF4D8"/></svg>' />
+  <link rel="apple-touch-icon" href="img/logo-n.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #FAF4D8;
+      --cream-soft: #F5EFE4;
+      --forest: #2F4A2F;
+      --forest-deep: #1F3520;
+      --copper: #C2712F;
+      --ink: #1A1A1A;
+
+      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+      --max-w: 1280px;
+      --gutter: clamp(1.5rem, 5vw, 5rem);
+      --section-y: clamp(5.5rem, 11vw, 9.5rem);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    body {
+      background: var(--cream);
+      color: var(--forest);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ---------- Typography ---------- */
+    h1, h2, h3 {
+      font-family: var(--serif);
+      color: var(--forest);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      letter-spacing: -0.035em;
+    }
+    h2 {
+      font-size: clamp(2.1rem, 4.8vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      font-weight: 500;
+      letter-spacing: -0.008em;
+    }
+
+    p {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: rgba(26, 26, 26, 0.82);
+      font-size: clamp(1rem, 1.05vw, 1.08rem);
+      line-height: 1.8;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--copper);
+      display: inline-block;
+    }
+
+    .italic {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Layout ---------- */
+    .section {
+      padding: var(--section-y) var(--gutter);
+      position: relative;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .rule {
+      width: 40px; height: 1px;
+      background: var(--copper);
+      margin-bottom: 2rem;
+    }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.1s cubic-bezier(0.2, 0.65, 0.25, 1), transform 1.1s cubic-bezier(0.2, 0.65, 0.25, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* =====================================================
+       1. NAV
+       ===================================================== */
+    nav.topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--gutter);
+      background: rgba(250, 244, 216, 0.0);
+      backdrop-filter: blur(0);
+      -webkit-backdrop-filter: blur(0);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+      z-index: 100;
+    }
+    nav.topnav.scrolled {
+      background: rgba(250, 244, 216, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(47, 74, 47, 0.08);
+    }
+    nav.topnav .brand {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.32em;
+      color: var(--forest);
+    }
+    nav.topnav .nav-link {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--forest);
+      transition: color 0.3s ease;
+    }
+    nav.topnav .nav-link:hover { color: var(--copper); }
+
+    /* =====================================================
+       2. HERO
+       ===================================================== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 9rem;
+      padding-bottom: 4rem;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: center;
+      width: 100%;
+    }
+    @media (min-width: 900px) {
+      .hero-grid { grid-template-columns: 1.05fr 1fr; }
+    }
+    .hero-text h1 { margin-bottom: 1.8rem; }
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+      color: rgba(47, 74, 47, 0.8);
+      max-width: 42ch;
+      line-height: 1.4;
+      margin-bottom: 1.8rem;
+    }
+    .hero-b2b {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.5rem;
+    }
+    .hero-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      width: 100%;
+      box-shadow: 0 30px 60px -30px rgba(47, 74, 47, 0.25);
+    }
+    .hero-img-wrap > img:first-of-type {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.2, 0.65, 0.25, 1);
+    }
+    .hero-img-wrap:hover > img:first-of-type { transform: scale(1.02); }
+    .hero-seal {
+      position: absolute;
+      top: clamp(1rem, 2.5vw, 1.8rem);
+      right: clamp(1rem, 2.5vw, 1.8rem);
+      width: clamp(72px, 10vw, 110px);
+      height: clamp(72px, 10vw, 110px);
+      z-index: 2;
+      pointer-events: none;
+      object-fit: contain;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 1.2rem 2.6rem;
+      border: 1px solid var(--forest);
+      color: var(--forest);
+      background: transparent;
+      transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--forest); color: var(--cream); }
+    .btn--filled { background: var(--forest); color: var(--cream); }
+    .btn--filled:hover { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+    .btn--light { border-color: var(--cream); color: var(--cream); }
+    .btn--light:hover { background: var(--cream); color: var(--forest); }
+    .btn--light-filled { background: var(--cream); border-color: var(--cream); color: var(--forest); }
+    .btn--light-filled:hover { background: var(--copper); border-color: var(--copper); color: var(--cream); }
+
+    /* =====================================================
+       TECHNICAL SPECS
+       ===================================================== */
+    .specs-section { background: var(--cream-soft); }
+    .specs-header { margin-bottom: clamp(4rem, 6vw, 5rem); max-width: 60ch; }
+    .specs-header h2 { margin-bottom: 1.5rem; }
+    .specs-header .lede {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(47, 74, 47, 0.7);
+      font-size: 1.1rem;
+      max-width: 48ch;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(47, 74, 47, 0.15);
+    }
+    @media (min-width: 860px) {
+      .specs-grid { grid-template-columns: 1fr 1fr; column-gap: clamp(3rem, 5vw, 5rem); }
+    }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.15);
+    }
+    @media (min-width: 500px) {
+      .spec-row { grid-template-columns: 180px 1fr; gap: 2rem; align-items: baseline; }
+    }
+    .spec-row .k {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(47, 74, 47, 0.75);
+      padding-top: 0.2rem;
+    }
+    .spec-row .v {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--forest);
+      line-height: 1.55;
+    }
+    .spec-row .v em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(47, 74, 47, 0.65);
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.98rem;
+    }
+
+    /* =====================================================
+       PACKAGING
+       ===================================================== */
+    .packaging-section { background: var(--cream-soft); }
+    .pack-header { margin-bottom: clamp(3.5rem, 5vw, 4.5rem); max-width: 60ch; }
+    .pack-header h2 { margin-bottom: 1.4rem; }
+    .pack-header .lede {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(47, 74, 47, 0.7);
+      font-size: 1.1rem;
+    }
+
+    .pack-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(47, 74, 47, 0.18);
+      border-bottom: 1px solid rgba(47, 74, 47, 0.18);
+    }
+    @media (min-width: 760px) {
+      .pack-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .pack-col {
+      padding: 3rem 0;
+      position: relative;
+    }
+    @media (min-width: 760px) {
+      .pack-col { padding: 3rem clamp(1.5rem, 3vw, 3rem); }
+      .pack-col + .pack-col::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 15%; bottom: 15%;
+        width: 1px;
+        background: rgba(47, 74, 47, 0.18);
+      }
+    }
+    @media (max-width: 759px) {
+      .pack-col + .pack-col { border-top: 1px solid rgba(47, 74, 47, 0.18); }
+    }
+    .pack-col .pack-label {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.7rem;
+    }
+    .pack-col h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .pack-list {
+      list-style: none;
+    }
+    .pack-list li {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.12);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      align-items: baseline;
+    }
+    @media (max-width: 520px) {
+      .pack-list li { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+    .pack-list li:last-child { border-bottom: none; }
+    .pack-list .k {
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(47, 74, 47, 0.72);
+    }
+    .pack-list .v {
+      font-weight: 300;
+      color: var(--forest);
+      line-height: 1.55;
+    }
+    .pack-note {
+      margin-top: 2.5rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(47, 74, 47, 0.7);
+      max-width: 56ch;
+    }
+
+    /* =====================================================
+       9. COMMERCIAL TERMS (dark)
+       ===================================================== */
+    .terms-section {
+      background: var(--forest);
+      color: var(--cream);
+    }
+    .terms-section h2 { color: var(--cream); }
+    .terms-section .eyebrow { color: var(--copper); }
+    .terms-header { max-width: 60ch; margin-bottom: clamp(4rem, 6vw, 5rem); }
+    .terms-header h2 { margin-bottom: 0; }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(250, 244, 216, 0.2);
+      border-bottom: 1px solid rgba(250, 244, 216, 0.2);
+    }
+    @media (min-width: 860px) {
+      .terms-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .term {
+      padding: 3rem 2.4rem;
+      position: relative;
+    }
+    @media (min-width: 860px) {
+      .term + .term::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 15%; bottom: 15%;
+        width: 1px;
+        background: rgba(250, 244, 216, 0.2);
+      }
+    }
+    @media (max-width: 859px) {
+      .term + .term { border-top: 1px solid rgba(250, 244, 216, 0.2); }
+    }
+    .term .label {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.3rem;
+    }
+    .term .body {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(250, 244, 216, 0.9);
+    }
+
+    /* =====================================================
+       10. ENQUIRE
+       ===================================================== */
+    .enquire-section {
+      text-align: center;
+    }
+    .enquire-section .container { max-width: 780px; }
+    .enquire-section .rule { margin-left: auto; margin-right: auto; }
+    .enquire-section h2 { margin-bottom: 1.8rem; }
+    .enquire-section .intro {
+      max-width: 52ch;
+      margin: 0 auto 3.5rem;
+      font-size: 1.08rem;
+      color: rgba(47, 74, 47, 0.78);
+    }
+
+    .enquire-specs {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      text-align: left;
+      border-top: 1px solid rgba(47, 74, 47, 0.18);
+    }
+    .enquire-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.18);
+    }
+    @media (min-width: 480px) {
+      .enquire-row { grid-template-columns: 140px 1fr; gap: 2rem; align-items: baseline; }
+    }
+    .enquire-row .k {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(47, 74, 47, 0.75);
+    }
+    .enquire-row .v {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 1.02rem;
+      color: var(--forest);
+    }
+    .enquire-row .v a { transition: color 0.3s ease; }
+    .enquire-row .v a:hover { color: var(--copper); }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+    footer {
+      padding: 3rem var(--gutter) 3.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(47, 74, 47, 0.12);
+      background: var(--cream);
+    }
+    footer .f-brand {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      color: var(--forest);
+    }
+    footer .f-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: rgba(47, 74, 47, 0.55);
+      margin-top: 0.7rem;
+    }
+    footer .f-year {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      color: rgba(47, 74, 47, 0.4);
+      margin-top: 1.5rem;
+    }
+
+    /* =====================================================
+       WHY ARGENTINA (new — dark)
+       ===================================================== */
+    .why-section { background: var(--forest); color: var(--cream); }
+    .why-section h2, .why-section h3 { color: var(--cream); }
+    .why-section .eyebrow { color: var(--copper); }
+    .why-section p { color: rgba(250, 244, 216, 0.82); }
+    .why-header { max-width: 60ch; margin-bottom: clamp(4rem, 6vw, 5rem); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(250, 244, 216, 0.2);
+    }
+    @media (min-width: 760px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+        border-left: 1px solid rgba(250, 244, 216, 0.2);
+      }
+    }
+    .why-item {
+      padding: clamp(2.2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.8rem);
+      border-bottom: 1px solid rgba(250, 244, 216, 0.2);
+    }
+    @media (min-width: 760px) {
+      .why-item { border-right: 1px solid rgba(250, 244, 216, 0.2); }
+    }
+    .why-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 2rem;
+      color: var(--copper);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+    .why-item h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      margin-bottom: 1rem;
+    }
+    .why-item p { font-size: 1rem; line-height: 1.7; max-width: 42ch; }
+    .why-item p + p.why-hit {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(250, 244, 216, 0.2);
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      line-height: 1.5;
+      max-width: 44ch;
+    }
+
+    /* =====================================================
+       DISTRIBUTION & LOGISTICS (new — dark)
+       ===================================================== */
+    .dist-section {
+      background: var(--forest-deep);
+      color: var(--cream);
+    }
+    .dist-section h2, .dist-section h3 { color: var(--cream); }
+    .dist-section .eyebrow { color: var(--copper); }
+    .dist-header { max-width: 60ch; margin-bottom: clamp(2.4rem, 4vw, 3.2rem); }
+
+    .dist-callout {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 1rem;
+      color: rgba(250, 244, 216, 0.9);
+      line-height: 1.65;
+      margin-bottom: clamp(2.8rem, 5vw, 4rem);
+      padding: 1.3rem 1.5rem;
+      border-left: 2px solid var(--copper);
+      background: rgba(250, 244, 216, 0.04);
+      max-width: 70ch;
+    }
+    .dist-callout strong {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--cream);
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+      letter-spacing: 0.01em;
+    }
+
+    .dist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(3rem, 5vw, 4.5rem);
+    }
+    @media (min-width: 960px) {
+      .dist-grid { grid-template-columns: 1.1fr 1fr; gap: clamp(3rem, 5vw, 5rem); }
+    }
+    .dist-sub {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(250, 244, 216, 0.2);
+    }
+
+    .channels { list-style: none; }
+    .channels li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(250, 244, 216, 0.14);
+      align-items: baseline;
+    }
+    .channels li:last-child { border-bottom: none; }
+    .channels .ch-num {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--copper);
+      font-size: 0.95rem;
+    }
+    .channels .ch-body {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 0.98rem;
+      color: rgba(250, 244, 216, 0.88);
+      line-height: 1.55;
+    }
+    .channels .ch-body strong {
+      font-weight: 500;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+    .channels .ch-body em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(250, 244, 216, 0.6);
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.92rem;
+    }
+
+    .logi-list { }
+    .logi-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(250, 244, 216, 0.14);
+    }
+    @media (min-width: 480px) {
+      .logi-row { grid-template-columns: 150px 1fr; gap: 1.5rem; align-items: baseline; }
+    }
+    .logi-row:last-child { border-bottom: none; }
+    .logi-k {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(250, 244, 216, 0.7);
+    }
+    .logi-v {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 0.98rem;
+      color: var(--cream);
+      line-height: 1.55;
+    }
+    .logi-v em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(250, 244, 216, 0.6);
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.92rem;
+    }
+
+    /* =====================================================
+       HERO STAT LINE (new — data-forward)
+       ===================================================== */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 1.8rem 0 2.4rem;
+      border-top: 1px solid rgba(47, 74, 47, 0.18);
+      border-bottom: 1px solid rgba(47, 74, 47, 0.18);
+      max-width: 520px;
+    }
+    .hero-stats .hs {
+      padding: 0.9rem 0.6rem 0.9rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.12);
+    }
+    .hero-stats .hs:nth-last-child(-n+2) { border-bottom: none; }
+    @media (max-width: 520px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-stats .hs { border-bottom: 1px solid rgba(47, 74, 47, 0.12); }
+      .hero-stats .hs:last-child { border-bottom: none; }
+    }
+    .hero-stats .hs-k {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.35rem;
+    }
+    .hero-stats .hs-v {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--forest);
+      line-height: 1.3;
+    }
+    .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+    /* =====================================================
+       AT A GLANCE (new — replaces Opportunity + Importer Brief)
+       ===================================================== */
+    .glance-section { background: var(--cream-soft); }
+    .glance-header { max-width: 54ch; margin-bottom: clamp(3rem, 5vw, 4rem); }
+    .glance-header h2 { margin-bottom: 0; }
+
+    .glance-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(47, 74, 47, 0.22);
+    }
+    @media (min-width: 640px) { .glance-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .glance-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .gs {
+      padding: 1.7rem 1.3rem;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.18);
+    }
+    @media (min-width: 640px) and (max-width: 999px) {
+      .gs:nth-child(odd) { border-right: 1px solid rgba(47, 74, 47, 0.18); }
+    }
+    @media (min-width: 1000px) {
+      .gs { border-right: 1px solid rgba(47, 74, 47, 0.18); }
+      .gs:nth-child(4n) { border-right: none; }
+    }
+    .gs-k {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.6rem;
+    }
+    .gs-v {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--forest);
+      line-height: 1.4;
+    }
+    .glance-note {
+      margin-top: 2.8rem;
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(47, 74, 47, 0.72);
+      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      border-left: 2px solid var(--copper);
+      padding-left: 1.3rem;
+    }
+
+    /* =====================================================
+       PRODUCT RANGE (new — replaces Two Forms + Collection)
+       ===================================================== */
+    .range-section { background: var(--cream); }
+    .range-header { max-width: 60ch; margin-bottom: clamp(2.6rem, 4vw, 3.5rem); }
+    .range-header h2 { margin-bottom: 0; }
+
+    .range-keyvisual {
+      width: 100%;
+      overflow: hidden;
+      margin: 0 0 0.8rem;
+      aspect-ratio: 16/5;
+      background: var(--cream-soft);
+    }
+    .range-keyvisual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s cubic-bezier(0.2, 0.65, 0.25, 1);
+    }
+    .range-keyvisual:hover img { transform: scale(1.02); }
+    .range-caption {
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(47, 74, 47, 0.55);
+      margin-bottom: clamp(3rem, 5vw, 4rem);
+      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+    }
+
+    .range-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: clamp(3.5rem, 5vw, 4.5rem);
+    }
+    @media (min-width: 760px) {
+      .range-split { grid-template-columns: 1fr 1fr; }
+    }
+    .range-col-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      margin-bottom: 1.4rem;
+    }
+    .range-col-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s cubic-bezier(0.2, 0.65, 0.25, 1);
+    }
+    .range-col-img:hover img { transform: scale(1.02); }
+    .range-col-label {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .range-col-specs { border-top: 1px solid rgba(47, 74, 47, 0.18); }
+    .range-col-specs > div {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.12);
+      align-items: baseline;
+    }
+    .range-col-specs > div > span:first-child {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(47, 74, 47, 0.72);
+    }
+    .range-col-specs > div > span:last-child {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 0.94rem;
+      color: var(--forest);
+      line-height: 1.55;
+    }
+
+    .range-blends-header {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.22);
+    }
+    .range-blends {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 640px) { .range-blends { grid-template-columns: 1fr 1fr; column-gap: 3rem; } }
+    .bl {
+      display: grid;
+      grid-template-columns: 32px 140px 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(47, 74, 47, 0.12);
+      align-items: baseline;
+    }
+    .bl-n {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--copper);
+    }
+    .bl-t {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--forest);
+    }
+    .bl-d {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: rgba(47, 74, 47, 0.65);
+      line-height: 1.45;
+    }
+
+    /* Certification seals (inline) */
+    .cert-seal {
+      display: inline-block;
+      vertical-align: middle;
+      width: 44px; height: 44px;
+      margin-right: 0.75rem;
+      object-fit: contain;
+    }
+    .cert-seal--light {
+      filter: brightness(1.05);
+    }
+
+    ::selection { background: var(--copper); color: var(--cream); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAV -->
+  <nav class="topnav" id="topnav">
+    <a class="brand" href="#top">TEA&nbsp;NEST</a>
+    <a class="nav-link" href="#enquire">Enquire</a>
+  </nav>
+
+  <!-- 2. HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-b2b reveal">Specialty tea · international wholesale</div>
+          <h1 class="reveal">Tea Nest</h1>
+          <p class="hero-subtitle reveal">Hand-pressed whole-leaf black tea. Dragon Ball and Tuocha single-serve formats.</p>
+          <div class="hero-stats reveal">
+            <div class="hs">
+              <div class="hs-k">Grade</div>
+              <div class="hs-v">G.F.O.P. whole-leaf</div>
+            </div>
+            <div class="hs">
+              <div class="hs-k">Species</div>
+              <div class="hs-v"><span class="italic">Camellia sinensis</span> var. <span class="italic">sinensis</span></div>
+            </div>
+            <div class="hs">
+              <div class="hs-k">Plantation</div>
+              <div class="hs-v">80+ years</div>
+            </div>
+            <div class="hs">
+              <div class="hs-k">Production</div>
+              <div class="hs-v">100% manual</div>
+            </div>
+          </div>
+          <div class="hero-ctas reveal">
+            <a class="btn btn--filled" href="#enquire">Request samples &amp; spec sheet</a>
+          </div>
+        </div>
+        <div class="hero-img-wrap reveal">
+          <img src="img/hero-teapot-flowers.jpg" alt="A Tea Nest sphere fully unfurled in a glass teapot — the Tea Nest mark visible at the base." loading="eager" />
+          <img src="img/rainforest-alliance-seal.png?v=2" alt="Rainforest Alliance Certified" class="hero-seal" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AT A GLANCE (new — replaces Opportunity + Importer Brief) -->
+  <section class="section glance-section">
+    <div class="container">
+      <div class="glance-header reveal">
+        <span class="eyebrow">At a glance</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>What this is, in data.</h2>
+      </div>
+
+      <div class="glance-grid reveal">
+        <div class="gs">
+          <div class="gs-k">Category</div>
+          <div class="gs-v">Hand-pressed single-serve black tea</div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Formats</div>
+          <div class="gs-v">Nest <span class="italic">(Dragon Ball, 7–8 g)</span> · Mini Nest <span class="italic">(Tuocha, 4–4.5 g)</span></div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Species</div>
+          <div class="gs-v"><span class="italic">Camellia sinensis</span> var. <span class="italic">sinensis</span></div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Grade</div>
+          <div class="gs-v">G.F.O.P. whole-leaf · Rainforest Alliance certified</div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Origin</div>
+          <div class="gs-v">Misiones, Argentina · 27° S · 290 m.a.s.l.</div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Plantation age</div>
+          <div class="gs-v">80+ years · seeded 1943–1945</div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Blends</div>
+          <div class="gs-v">Six, across both formats</div>
+        </div>
+        <div class="gs">
+          <div class="gs-k">Target channels</div>
+          <div class="gs-v">Tea houses · specialty retail · HORECA</div>
+        </div>
+      </div>
+
+      <p class="glance-note reveal">First hand-pressed Dragon Ball and Tuocha produced outside China. A Western-hemisphere expression of the form — designed for importers, specialty retailers and HORECA who sell on provenance, not on volume.</p>
+    </div>
+  </section>
+
+  <!-- 4. PRODUCT RANGE (new — replaces Two Forms + Collection) -->
+  <section class="section range-section">
+    <div class="container">
+      <div class="range-header reveal">
+        <span class="eyebrow">Product range</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>Two formats. Six blends.</h2>
+      </div>
+
+      <div class="range-keyvisual reveal">
+        <img src="img/three-forms.jpg" alt="Loose whole leaves, Mini Nest tuocha discs, and Nest Dragon Ball spheres — side by side." loading="lazy" />
+      </div>
+      <p class="range-caption reveal">Whole leaf · Mini Nest · Nest</p>
+
+      <div class="range-split reveal">
+        <div>
+          <div class="range-col-img"><img src="img/nest-spheres-plate.jpg" alt="Hand-pressed Nest Dragon Ball spheres." loading="lazy" /></div>
+          <div class="range-col-label">Nest · 龙珠 Dragon Ball</div>
+          <div class="range-col-specs">
+            <div><span>Unit weight</span><span>7–8 g per sphere</span></div>
+            <div><span>Serving</span><span>1 sphere · 350 ml · 2 full infusions</span></div>
+            <div><span>Wrap</span><span>Individual copper foil · branded N seal</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="range-col-img"><img src="img/mininest-tuocha.jpg" alt="Mini Nest tuocha discs with hollow-top form." loading="lazy" /></div>
+          <div class="range-col-label">Mini Nest · 沱茶 Tuocha</div>
+          <div class="range-col-specs">
+            <div><span>Unit weight</span><span>4–4.5 g per disc</span></div>
+            <div><span>Serving</span><span>1 disc · per-cup service · with Camellia blossoms</span></div>
+            <div><span>Wrap</span><span>Individual copper foil · branded N seal</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="range-blends-header reveal">Six blends · available in both formats</div>
+      <div class="range-blends reveal">
+        <div class="bl"><span class="bl-n">01</span><span class="bl-t">Pure Black Tea</span><span class="bl-d">The origin. Nothing but whole leaves.</span></div>
+        <div class="bl"><span class="bl-n">02</span><span class="bl-t">Red Forest Fruits</span><span class="bl-d">Berry notes woven into the leaf.</span></div>
+        <div class="bl"><span class="bl-n">03</span><span class="bl-t">Mint &amp; Chocolate</span><span class="bl-d">Fresh, warm, unexpected.</span></div>
+        <div class="bl"><span class="bl-n">04</span><span class="bl-t">Vanilla &amp; Chocolate</span><span class="bl-d">Comfort in a cup.</span></div>
+        <div class="bl"><span class="bl-n">05</span><span class="bl-t">Mango &amp; Chocolate</span><span class="bl-d">Tropical. Decadent.</span></div>
+        <div class="bl"><span class="bl-n">06</span><span class="bl-t">Lemon &amp; Orange</span><span class="bl-d">Bright citrus, clean finish.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4b. WHY ARGENTINA (new — dark) -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-header reveal">
+        <span class="eyebrow">Why this origin</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>Four reasons to source<br/>from Misiones.</h2>
+      </div>
+
+      <div class="why-grid reveal">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <h3>Eighty years of Misiones terroir</h3>
+          <p>Plantations seeded in 1943–1945 in Misiones' red iron soil. The subtropical climate, long oxidation and traditional Asian-style firing produce an amber cup with almond, cocoa and ripe-apple notes.</p>
+          <p class="why-hit">80-year plantations · red iron soil · traditional process</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <h3>Hand-selected, bud by bud</h3>
+          <p>Every harvest follows the same protocol — apical bud, developing leaf, expanded leaf — hand-picked and inspected. Cycles of 7 to 28 days, adjusted to the season.</p>
+          <p class="why-hit">1 bud + 2 leaves · 100% manual selection · season-adjusted cycles</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <h3>Single plantation, single batch</h3>
+          <p>Full chain of custody from leaf to copper foil. Every shipment carries its own origin dossier.</p>
+          <p class="why-hit">Single-farm source · single-batch traceability · origin dossier per shipment</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <h3>Shelf differentiation</h3>
+          <p>A fresh origin alongside the great classics of the category.</p>
+          <p class="why-hit">First hand-pressed tea produced outside China · unique Argentine provenance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TECH SPECS -->
+  <section class="section specs-section">
+    <div class="container">
+      <div class="specs-header reveal">
+        <span class="eyebrow">Technical specifications</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>Technical specifications.</h2>
+        <p class="lede">Full product data, available to qualified accounts on request.</p>
+      </div>
+
+      <div class="specs-grid reveal">
+        <div class="spec-row"><div class="k">Species</div><div class="v"><span class="italic">Camellia sinensis</span> (L.) O. Kuntze, var. <span class="italic">sinensis</span></div></div>
+        <div class="spec-row"><div class="k">Grade</div><div class="v">G.F.O.P. (Golden Flowery Orange Pekoe) <em>whole-leaf</em></div></div>
+        <div class="spec-row"><div class="k">Certification</div><div class="v"><img src="img/rainforest-alliance-seal.png?v=2" alt="Rainforest Alliance Certified seal" class="cert-seal" />Rainforest Alliance</div></div>
+        <div class="spec-row"><div class="k">Origin</div><div class="v">Misiones, Argentina · 27°S</div></div>
+        <div class="spec-row"><div class="k">Altitude</div><div class="v">290 m.a.s.l.</div></div>
+        <div class="spec-row"><div class="k">Soil</div><div class="v">Ultisols, deep red ferruginous</div></div>
+        <div class="spec-row"><div class="k">Climate</div><div class="v">Humid subtropical <em>2,000 mm annual rainfall · 21°C mean</em></div></div>
+        <div class="spec-row"><div class="k">Plantation age</div><div class="v">80+ years <em>seeded 1943–1945, from selected Chinese and Japanese seeds</em></div></div>
+        <div class="spec-row"><div class="k">Harvest window</div><div class="v">September to May <em>Southern Hemisphere</em></div></div>
+        <div class="spec-row"><div class="k">Harvest cycle</div><div class="v">7 to 28 days · 100% manual</div></div>
+        <div class="spec-row"><div class="k">Plucking standard</div><div class="v">Apical bud + developing leaf + expanded leaf</div></div>
+        <div class="spec-row"><div class="k">Process</div><div class="v">Complete oxidation · slow traditional fermentation · Asian-style firing</div></div>
+        <div class="spec-row"><div class="k">Tasting notes</div><div class="v">Bright amber liquor <em>almond · ripe apple · cocoa · rose · legumes · thick body · low astringency</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8b. LOGISTICS (dark) -->
+  <section class="section dist-section">
+    <div class="container">
+      <div class="dist-header reveal">
+        <span class="eyebrow">Logistics</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>How it ships.</h2>
+      </div>
+
+      <p class="dist-callout reveal"><strong>Not a trader offer.</strong> You negotiate directly with the producer through Vervis Comex — the exclusive export representative. No intermediate margin, no shifting quotes: the figure on your quotation is the figure you pay.</p>
+
+      <div class="reveal" style="max-width: 780px;">
+        <div class="logi-list">
+          <div class="logi-row"><div class="logi-k">HS Code</div><div class="logi-v">0902.30<em>Black tea, fermented — immediate packings ≤ 3 kg</em></div></div>
+          <div class="logi-row"><div class="logi-k">Origin</div><div class="logi-v">Misiones · Argentina</div></div>
+          <div class="logi-row"><div class="logi-k">Incoterms</div><div class="logi-v">FCA · FOB · CIF<em>Quoted per destination and volume</em></div></div>
+          <div class="logi-row"><div class="logi-k">Samples</div><div class="logi-v">Available on request for qualified accounts</div></div>
+          <div class="logi-row"><div class="logi-k">Shelf life</div><div class="logi-v">24 months from production</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. COMMERCIAL TERMS -->
+  <section class="section terms-section">
+    <div class="container">
+      <div class="terms-header reveal">
+        <span class="eyebrow">Partnership</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>Partnership terms.</h2>
+      </div>
+
+      <div class="terms-grid reveal">
+        <div class="term">
+          <div class="label">Flexible volumes</div>
+          <div class="body">From a sample shipment to full-container orders. Commercial sizing is scaled to your market plan and channel.</div>
+        </div>
+        <div class="term">
+          <div class="label">Factory-direct pricing</div>
+          <div class="body">Pricing and contracts issued directly by the producer through Vervis Comex — the exclusive export representative. No intermediary margin, no retrade: the figure on your quotation is the figure you pay.</div>
+        </div>
+        <div class="term">
+          <div class="label">Full export handling</div>
+          <div class="body">Certificate of origin, traceability dossier, HS 0902.30 customs clearance and end-to-end logistics from Misiones to destination. FCA · FOB · CIF quoted per destination.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9b. PACKAGING — visual proof, before Enquire -->
+  <section class="section packaging-section">
+    <div class="container">
+      <div class="pack-header reveal">
+        <span class="eyebrow">Packaging</span>
+        <div class="rule" style="margin-top:1.5rem;"></div>
+        <h2>Packaging.</h2>
+      </div>
+
+      <div class="range-keyvisual reveal" style="aspect-ratio: 4/3; max-width: 680px; margin: 0 auto clamp(2rem, 4vw, 3rem); background: var(--cream);">
+        <img src="img/packaging-lineup.png" alt="Tea Nest packaging lineup — kraft doypacks in multiple sizes and individual copper-foil wrapped spheres." loading="lazy" style="object-fit: contain;" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. ENQUIRE -->
+  <section class="section enquire-section" id="enquire">
+    <div class="container">
+      <span class="eyebrow reveal">Enquire</span>
+      <div class="rule reveal" style="margin-top:1.5rem;"></div>
+      <h2 class="reveal">Enquire.</h2>
+      <p class="intro reveal">For samples, wholesale pricing and private-label enquiries, contact Vervis Comex — our exclusive commercial partner for international markets.</p>
+
+      <div class="enquire-specs reveal">
+        <div class="enquire-row">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:info@verviscomex.com.ar">info@verviscomex.com.ar</a></div>
+        </div>
+        <div class="enquire-row">
+          <div class="k">WhatsApp</div>
+          <div class="v"><a href="https://wa.me/5493754533231" target="_blank" rel="noopener">+54 9 3754 533231</a></div>
+        </div>
+        <div class="enquire-row">
+          <div class="k">Web</div>
+          <div class="v"><a href="https://www.verviscomex.com.ar" target="_blank" rel="noopener">www.verviscomex.com.ar</a></div>
+        </div>
+        <div class="enquire-row">
+          <div class="k">Location</div>
+          <div class="v">Misiones · Argentina</div>
+        </div>
+      </div>
+
+      <div class="cta-row reveal">
+        <a class="btn btn--filled" href="mailto:info@verviscomex.com.ar?subject=Tea%20Nest%20-%20Sample%20request&body=Hello%2C%0A%0AWe%20are%20interested%20in%20Tea%20Nest%20and%20would%20like%20to%20request%20samples%20and%20pricing%20information.%0A%0ACompany%3A%20%0ACountry%3A%20%0ADistribution%20channel%3A%20%0A%0ARegards%2C">Request samples</a>
+        <a class="btn" href="https://wa.me/5493754533231" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-brand">TEA NEST · Misiones, Argentina</div>
+    <div class="f-sub">Represented worldwide by Vervis Comex</div>
+    <div class="f-year" id="f-year">© 2026</div>
+  </footer>
+
+  <script>
+    (function () {
+      // Reveal on scroll
+      var items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // Nav scrolled state
+      var nav = document.getElementById('topnav');
+      function onScroll() {
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Year
+      var y = document.getElementById('f-year');
+      if (y) y.textContent = '© ' + new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

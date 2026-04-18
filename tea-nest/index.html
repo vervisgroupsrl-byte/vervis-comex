@@ -985,7 +985,7 @@
     @media (max-width: 600px) {
       :root {
         --section-y: clamp(3rem, 8vw, 4.5rem);
-        --gutter: 1.1rem;
+        --gutter: 0.85rem;
       }
 
       /* Break long words anywhere they need to on mobile */
@@ -1037,11 +1037,14 @@
       nav.topnav .nav-link { letter-spacing: 0.2em; font-size: 0.64rem; }
 
       /* Reduce interior padding of boxed cells so words don't get squeezed */
-      .gs { padding: 1.3rem 0.9rem; }
-      .why-item { padding: 1.8rem 1rem; }
-      .term { padding: 2rem 1.1rem; }
-      .dist-callout { padding: 1rem 1.1rem; font-size: 0.94rem; }
-      .glance-note { padding-left: 1rem; font-size: 0.98rem; }
+      .gs { padding: 1.2rem 0.7rem; }
+      .why-item { padding: 1.6rem 0.8rem; }
+      .term { padding: 1.8rem 0.8rem; }
+      .dist-callout { padding: 0.9rem 0.9rem; font-size: 0.92rem; }
+      .glance-note { padding-left: 0.8rem; font-size: 0.95rem; }
+      .range-col-specs > div { grid-template-columns: 95px 1fr; gap: 0.6rem; }
+      .spec-row { padding: 1.1rem 0; }
+      .logi-row { padding: 0.9rem 0; }
 
       /* Tighter section headers on mobile */
       h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
@@ -1054,10 +1057,14 @@
 
     /* Even tighter on very narrow screens (iPhone SE, older Androids) */
     @media (max-width: 360px) {
-      :root { --gutter: 0.9rem; }
+      :root { --gutter: 0.65rem; }
       .hero-stats { grid-template-columns: 1fr; column-gap: 0; }
       .hero-stats .hs { border-bottom: 1px solid rgba(47, 74, 47, 0.12); }
       .hero-stats .hs:last-child { border-bottom: none; }
+      .gs { padding: 1rem 0.5rem; }
+      .why-item { padding: 1.4rem 0.6rem; }
+      .term { padding: 1.5rem 0.6rem; }
+      .dist-callout { padding: 0.8rem 0.7rem; }
     }
 
     ::selection { background: var(--copper); color: var(--cream); }

@@ -811,6 +811,19 @@
     }
     .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; }
 
+    .hero-experience {
+      margin-top: 0.4rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1rem, 1.18vw, 1.1rem);
+      line-height: 1.65;
+      color: rgba(47, 74, 47, 0.85);
+      max-width: 48ch;
+      border-left: 2px solid var(--copper);
+      padding-left: 1.1rem;
+    }
+
     /* =====================================================
        AT A GLANCE (new — replaces Opportunity + Importer Brief)
        ===================================================== */
@@ -1171,9 +1184,7 @@
               <div class="hs-v">100% manual</div>
             </div>
           </div>
-          <div class="hero-ctas reveal">
-            <a class="btn btn--filled" href="#enquire">Request samples<span class="btn-extra"> &amp; spec sheet</span></a>
-          </div>
+          <p class="hero-experience reveal">At 95°C in a glass teapot, the hand-pressed sphere opens in front of the customer — whole leaves expanding into a bright amber liquor. In the Mini Nest format, hand-pressed camelia blossoms rise and bloom on the surface as the leaves open below. A visible ritual that turns a cup into an event.</p>
         </div>
         <div class="hero-img-wrap reveal">
           <img src="img/hero-teapot-flowers.jpg" alt="A Tea Nest sphere fully unfurled in a glass teapot — the Tea Nest mark visible at the base." loading="eager" />

@@ -212,21 +212,34 @@
        2. HERO
        ===================================================== */
     .hero {
-      min-height: 100vh;
-      padding-top: 9rem;
-      padding-bottom: 4rem;
-      display: flex;
-      align-items: center;
+      min-height: auto;
+      padding-top: clamp(6rem, 10vw, 8.5rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
     }
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(3rem, 6vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2.5rem, 5vw, 3.8rem);
       align-items: center;
       width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
     }
-    @media (min-width: 900px) {
-      .hero-grid { grid-template-columns: 1.05fr 1fr; }
+    .hero-text { width: 100%; max-width: 620px; }
+    .hero-video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background: var(--forest-deep);
+      box-shadow: 0 30px 60px -30px rgba(47, 74, 47, 0.28);
+    }
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
     }
     .hero-text h1 { margin-bottom: 1.8rem; }
     .hero-subtitle {
@@ -253,6 +266,7 @@
       overflow: hidden;
       aspect-ratio: 1/1;
       width: 100%;
+      max-width: 540px;
       box-shadow: 0 30px 60px -30px rgba(47, 74, 47, 0.25);
     }
     .hero-img-wrap > img:first-of-type {
@@ -1068,7 +1082,6 @@
         padding-bottom: 2.2rem;
       }
       .hero-grid { gap: 1.6rem; }
-      .hero-img-wrap { order: -1; }
       .hero-seal {
         width: 60px; height: 60px;
         top: 0.7rem; right: 0.7rem;
@@ -1162,6 +1175,10 @@
   <section class="hero" id="top">
     <div class="container">
       <div class="hero-grid">
+        <div class="hero-img-wrap reveal">
+          <img src="img/hero-teapot-flowers.jpg" alt="Uma esfera Tea Nest totalmente aberta em um bule de vidro — a marca Tea Nest visível na base." loading="eager" />
+          <img src="img/rainforest-alliance-seal.png?v=2" alt="Rainforest Alliance Certified" class="hero-seal" />
+        </div>
         <div class="hero-text">
           <div class="hero-b2b reveal">Chá specialty · venda atacado internacional</div>
           <h1 class="reveal">Tea Nest</h1>
@@ -1186,10 +1203,11 @@
           </div>
           <p class="hero-experience reveal">A 95°C em um bule de vidro, a esfera prensada à mão se abre na frente do cliente — as folhas inteiras se expandem em um licor âmbar brilhante. No formato Mini Nest, as flores de camélia prensadas sobem e desabrocham na superfície enquanto as folhas se abrem embaixo. Um ritual visível que transforma uma xícara em um evento.</p>
         </div>
-        <div class="hero-img-wrap reveal">
-          <img src="img/hero-teapot-flowers.jpg" alt="Uma esfera Tea Nest totalmente aberta em um bule de vidro — a marca Tea Nest visível na base." loading="eager" />
-          <img src="img/rainforest-alliance-seal.png?v=2" alt="Rainforest Alliance Certified" class="hero-seal" />
-        </div>
+      <div class="hero-video-wrap reveal">
+        <video autoplay muted loop playsinline preload="metadata" poster="img/hero-unfurling-poster.jpg">
+          <source src="img/hero-unfurling.mp4" type="video/mp4">
+        </video>
+      </div>
       </div>
     </div>
   </section>

@@ -1512,6 +1512,13 @@
       // Year
       var y = document.getElementById('f-year');
       if (y) y.textContent = '© ' + new Date().getFullYear();
+
+      // Hero video — play at 0.5x for slow-motion appreciation
+      var heroVideo = document.querySelector('.hero-video-wrap video');
+      if (heroVideo) {
+        heroVideo.playbackRate = 0.5;
+        heroVideo.addEventListener('loadedmetadata', function () { heroVideo.playbackRate = 0.5; });
+      }
     })();
   </script>
 </body>
